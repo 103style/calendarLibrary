@@ -31,5 +31,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api library.v7
-    implementation project(':calendar')
+    //    implementation 'com.github.prolificinteractive:material-calendarview:2.0.0'
+    implementation project(':calendarLibrary')
 }

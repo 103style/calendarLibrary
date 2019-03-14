@@ -1,8 +1,7 @@
 package com.tcl.p_calendar;
 
-
-import com.tcl.calendar.CalendarDay;
-import com.tcl.calendar.TitleFormatter;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.format.TitleFormatter;
 
 import java.util.Calendar;
 import java.util.Locale;

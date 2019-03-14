@@ -17,4 +17,152 @@ ext {
             v7              : 'com.android.support:appcompat-v7:28.0.0',
             desigin         : 'com.android.support:design:28.0.0',
     ]
+
+
+    //Android
+    androidCompileSdkVersion = 27
+    androidBuildToolsVersion = "27.0.3"
+    androidMinSdkVersion = 18
+    //暂时屏蔽6.0的权限管理
+    androidTargetSdkVersion = 26
+
+    //Libraries
+    appSupportVersion = '27.0.0'
+    appcompatVersion = appSupportVersion
+    appCompatDesignVersion = appSupportVersion
+    androidAnnotationsVersion = appSupportVersion
+    recyclerViewVersion = appSupportVersion
+    appSupportV13ViewVersion = appSupportVersion
+    daggerVersion = '2.0.2'
+    //'8.5.1' is available. https://github.com/JakeWharton/butterknife
+    butterKnifeVersion = '8.4.0'
+    rxJavaVersion = '1.1.2'
+    rxAndroidVersion = '1.1.0'
+    javaxAnnotationVersion = '1.0'
+    gsonVersion = '2.8.1'
+    okHttpVersion = '3.8.1'
+    okGoVersion = '+'
+    retrofitVersion = '2.0.+'
+    multidexVersion = '1.0.2'
+    googleMapsVersion = "12.0.1"
+    googleAuthVersion = googleMapsVersion
+    googleGcmVersion = googleMapsVersion
+    googleLocationVersion = googleMapsVersion
+    googleAnalyticsVersion = googleMapsVersion
+    googleAppIndexingVersion = googleMapsVersion
+    googlePlayServiceVersion = googleMapsVersion
+    googleLibphonenumberVersion = '8.4.0'
+    mapsUtilVersion = '0.4@aar'
+    picassoVersion = '2.5.2'
+    glideVersion = '3.8.0'
+    zxingEmbeddedVersion = '3.2.0@aar'
+    zxingIntegrationVersion = '2.0.0@aar'
+    zxingLegacyVersion = zxingIntegrationVersion
+    zxingMinimal = zxingIntegrationVersion
+    zxingCoreVersion = '3.0.1'
+    facebookSdkVersion = '4.6.0'
+    twitterVersion = '1.9.1@aar'
+    scissorsVersion = '1.0.1'
+    ormLiteVersion = '4.48'
+    ormContentProviderVersion = '1.0.4'
+    cpormVersion = '3.0.7'
+
+
+    //Testing
+    robolectricVersion = '3.0'
+    jUnitVersion = '4.12'
+    assertJVersion = '1.7.1'
+    mockitoVersion = '1.9.5'
+    dexmakerVersion = '1.0'
+    runnerVersion = "0.4.1"
+    rulesVersion = "0.4.1"
+    espressoVersion = "2.2.1"
+    espressoIntentVersion = espressoVersion
+    espressoContrib = espressoVersion
+    //Development
+    leakCanaryVersion = '1.3.1'
+    threeTenAbp = '1.1.0'
+
+    presentationDependencies = [
+            threeeTenApb    : "com.jakewharton.threetenabp:threetenabp:${threeTenAbp}",
+            daggerCompiler  : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger          : "com.google.dagger:dagger:${daggerVersion}",
+            butterKnife     : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeApt  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            recyclerView    : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+            appcompat       : "com.android.support:appcompat-v7:${appcompatVersion}",
+            appDesign       : "com.android.support:design:${appCompatDesignVersion}",
+            appSupportV4    : "com.android.support:support-v4:${appSupportVersion}",
+            appSupportV13   : "com.android.support:support-v13:${appSupportV13ViewVersion}",
+            rxJava          : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid       : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            multidex        : "com.android.support:multidex:${multidexVersion}",
+            googleMaps      : "com.google.android.gms:play-services-maps:${googleMapsVersion}",
+            googleAuth      : "com.google.android.gms:play-services-auth:${googleAuthVersion}",
+            googleGcm       : "com.google.android.gms:play-services-gcm:${googleGcmVersion}",
+            googleLocation  : "com.google.android.gms:play-services-location:${googleLocationVersion}",
+            googleAnalytics : "com.google.android.gms:play-services-analytics:${googleAnalyticsVersion}",
+            googleIndexing  : "com.google.android.gms:play-services-appindexing:${googleAppIndexingVersion}",
+            googlePlayService  : "com.google.android.gms:play-services:${googlePlayServiceVersion}",
+            googleLibphonenumber  : "com.googlecode.libphonenumber:libphonenumber:${googleLibphonenumberVersion}",
+            googleMapsUtil  : "com.google.maps.android:android-maps-utils:${mapsUtilVersion}",
+            glide           : "com.github.bumptech.glide:glide:${glideVersion}",
+            zxingEmbedded   : "com.journeyapps:zxing-android-embedded:${zxingEmbeddedVersion}",
+            zxingIntegration: "com.embarkmobile:zxing-android-integration:${zxingIntegrationVersion}",
+            zxingLegacy     : "com.embarkmobile:zxing-android-legacy:${zxingLegacyVersion}",
+            zxingMinimal    : "com.embarkmobile:zxing-android-minimal:${zxingMinimal}",
+            zxingCore       : "com.google.zxing:core:${zxingCoreVersion}",
+            facebook        : "com.facebook.android:facebook-android-sdk:${facebookSdkVersion}",
+            scissors        : "com.lyft:scissors:${scissorsVersion}",
+            twitter         : "com.twitter.sdk.android:twitter:${twitterVersion}",
+            percentLayout   : "com.android.support:percent:${appSupportVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+
+    ]
+
+    presentationTestDependencies = [
+            mockito           : "org.mockito:mockito-core:${mockitoVersion}",
+            dexmaker          : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+            dexmakerMockito   : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+            espresso          : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            espressoIntent    : "com.android.support.test.espresso:espresso-intents:${espressoIntentVersion}",
+            espressoContrib   : "com.android.support.test.espresso:espresso-contrib:${espressoContrib}",
+            runner            : "com.android.support.test:runner:${runnerVersion}",
+            rules             : "com.android.support.test:rules:${rulesVersion}",
+            // Force usage of support annotations in the test app, since it is internally used by the runner module.
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+
+    ]
+
+
+    dataDependencies = [
+            daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger            : "com.google.dagger:dagger:${daggerVersion}",
+            okHttp3           : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okGo              : "com.lzy.net:okgo:${okGoVersion}",
+            gson              : "com.google.code.gson:gson:${gsonVersion}",
+            rxJava            : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            ormLite           : "com.j256.ormlite:ormlite-core:${ormLiteVersion}",
+            ormLiteAndroid    : "com.j256.ormlite:ormlite-android:${ormLiteVersion}",
+            ormContentProvider: "com.tojc.ormlite.android:ormlite-content-provider-library:${ormContentProviderVersion}",
+            cporm             : "za.co.cporm:CPOrm:${cpormVersion}"
+
+    ]
+
+    dataTestDependencies = [
+            junit      : "junit:junit:${jUnitVersion}",
+            assertj    : "org.assertj:assertj-core:${assertJVersion}",
+            mockito    : "org.mockito:mockito-core:${mockitoVersion}",
+            robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    developmentDependencies = [
+            leakCanary: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            leakCanaryNoOp: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
+    ]
+
 }
