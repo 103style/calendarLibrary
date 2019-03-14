@@ -1,5 +1,6 @@
 package com.prolificinteractive.materialcalendarview;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
@@ -30,6 +31,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     @NonNull
     private TitleFormatter titleFormatter = TitleFormatter.DEFAULT;
     private Integer color = null;
+    private Drawable drawable = null;
     private Integer dateTextAppearance = null;
     private Integer weekDayTextAppearance = null;
     @ShowOtherDates
@@ -85,6 +87,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     public CalendarPagerAdapter<?> migrateStateAndReturn(CalendarPagerAdapter<?> newAdapter) {
         newAdapter.titleFormatter = titleFormatter;
         newAdapter.color = color;
+        newAdapter.drawable = drawable;
         newAdapter.dateTextAppearance = dateTextAppearance;
         newAdapter.weekDayTextAppearance = weekDayTextAppearance;
         newAdapter.showOtherDates = showOtherDates;
@@ -152,6 +155,9 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         if (color != null) {
             pagerView.setSelectionColor(color);
         }
+        if (drawable != null) {
+            pagerView.setSelectionDrawable(drawable);
+        }
         if (dateTextAppearance != null) {
             pagerView.setDateTextAppearance(dateTextAppearance);
         }
@@ -206,6 +212,13 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         this.color = color;
         for (V pagerView : currentViews) {
             pagerView.setSelectionColor(color);
+        }
+    }
+
+    public void setSelectionDrawable(Drawable drawable) {
+        this.drawable = drawable;
+        for (V pagerView : currentViews) {
+            pagerView.setSelectionDrawable(drawable);
         }
     }
 

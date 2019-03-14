@@ -793,7 +793,7 @@ public class MaterialCalendarView extends ViewGroup {
      *
      * @param l 点击事件
      */
-    public void setTvLeftTopText(OnClickListener l) {
+    public void setTvLeftTopClickListener(OnClickListener l) {
         if (tvLeftTop.isSelected()) {
             return;
         }
@@ -805,7 +805,7 @@ public class MaterialCalendarView extends ViewGroup {
      *
      * @param l 点击事件
      */
-    public void setTvRightTopText(OnClickListener l) {
+    public void setTvRightTopClickListener(OnClickListener l) {
         if (tvRightTop.isSelected()) {
             return;
         }
