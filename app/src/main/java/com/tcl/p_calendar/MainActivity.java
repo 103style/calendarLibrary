@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calendarView = findViewById(R.id.test);
-
-        calendarView.setTitleFormatter(new MonthDefaultTitleFormatter());
+        calendarView.setTitleFormatter(new MonthDefaultTitleFormatter(getResources().getStringArray(R.array.month_array)));
         calendarView.setLeftArrow(R.drawable.calendar_select_left);
         calendarView.setRightArrow(R.drawable.calendar_select_right);
         calendarView.setTvRightTopText(R.string.tv_today);
