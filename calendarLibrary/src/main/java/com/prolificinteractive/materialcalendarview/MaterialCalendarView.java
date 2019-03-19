@@ -167,7 +167,8 @@ public class MaterialCalendarView extends ViewGroup {
     private boolean mDynamicHeightEnabled;
     private CalendarDay minDate = null;
     private CalendarDay maxDate = null;
-    private OnDateSelectedListener listener;
+    private OnDateSelectedListener dateSelectListener;
+    private OnDateChangeListener changeListener;
     private OnDateLongClickListener longClickListener;
     private OnMonthChangedListener monthListener;
     private final ViewPager.OnPageChangeListener pageChangeListener =
@@ -940,9 +941,6 @@ public class MaterialCalendarView extends ViewGroup {
             return;
         }
         adapter.setDateSelected(day, selected);
-        if (listener != null) {
-            listener.onDateSelected(this, day, true);
-        }
     }
 
     /**
@@ -1003,8 +1001,8 @@ public class MaterialCalendarView extends ViewGroup {
         int index = adapter.getIndexForDay(day);
         pager.setCurrentItem(index, useSmoothScroll);
         updateUi();
-        if (listener != null) {
-            listener.onDateSelected(this, day, false);
+        if (changeListener != null) {
+            changeListener.onDateChange(this, day);
         }
     }
 
@@ -1359,8 +1357,15 @@ public class MaterialCalendarView extends ViewGroup {
      *
      * @param listener thing to be notified
      */
-    public void setOnDateChangedListener(OnDateSelectedListener listener) {
-        this.listener = listener;
+    public void setOnDateSelectChangedListener(OnDateSelectedListener listener) {
+        this.dateSelectListener = listener;
+    }
+
+    /**
+     * 设置 日期改变的监听器
+     */
+    public void setDateChangeListener(OnDateChangeListener changeListener) {
+        this.changeListener = changeListener;
     }
 
     /**
@@ -1406,8 +1411,11 @@ public class MaterialCalendarView extends ViewGroup {
      * @param selected true if the day is now currently selected, false otherwise
      */
     protected void dispatchOnDateSelected(final CalendarDay day, final boolean selected) {
-        if (listener != null) {
-            listener.onDateSelected(MaterialCalendarView.this, day, selected);
+        if (dateSelectListener != null) {
+            dateSelectListener.onDateSelected(MaterialCalendarView.this, day, selected);
+        }
+        if (changeListener != null) {
+            changeListener.onDateChange(MaterialCalendarView.this, day);
         }
     }
 
