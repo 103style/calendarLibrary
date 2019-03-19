@@ -940,6 +940,9 @@ public class MaterialCalendarView extends ViewGroup {
             return;
         }
         adapter.setDateSelected(day, selected);
+        if (listener != null) {
+            listener.onDateSelected(this, day, true);
+        }
     }
 
     /**
@@ -1000,6 +1003,9 @@ public class MaterialCalendarView extends ViewGroup {
         int index = adapter.getIndexForDay(day);
         pager.setCurrentItem(index, useSmoothScroll);
         updateUi();
+        if (listener != null) {
+            listener.onDateSelected(this, day, false);
+        }
     }
 
     /**
