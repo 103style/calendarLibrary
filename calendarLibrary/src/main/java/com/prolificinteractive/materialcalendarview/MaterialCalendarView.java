@@ -941,6 +941,9 @@ public class MaterialCalendarView extends ViewGroup {
             return;
         }
         adapter.setDateSelected(day, selected);
+        if (dateSelectListener != null) {
+            dateSelectListener.onDateSelected(this, day, selected);
+        }
     }
 
     /**
