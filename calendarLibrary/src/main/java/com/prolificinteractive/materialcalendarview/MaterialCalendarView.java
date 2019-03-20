@@ -147,9 +147,9 @@ public class MaterialCalendarView extends ViewGroup {
     private final OnClickListener onClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (v == buttonFuture) {
+            if (v == buttonFuture && v.isEnabled()) {
                 pager.setCurrentItem(pager.getCurrentItem() + 1, true);
-            } else if (v == buttonPast) {
+            } else if (v == buttonPast && v.isEnabled()) {
                 pager.setCurrentItem(pager.getCurrentItem() - 1, true);
             }
         }
@@ -551,6 +551,20 @@ public class MaterialCalendarView extends ViewGroup {
     }
 
     /**
+     * 返回左边控制月份变化的按钮
+     */
+    public ImageView getButtonPast() {
+        return buttonPast;
+    }
+
+    /**
+     * 返回左边控制月份变化的按钮
+     */
+    public ImageView getButtonFuture() {
+        return buttonFuture;
+    }
+
+    /**
      * Use {@link #getTileWidth()} or {@link #getTileHeight()} instead. This method is deprecated
      * and will just return the largest of the two sizes.
      *
@@ -890,6 +904,13 @@ public class MaterialCalendarView extends ViewGroup {
     }
 
     /**
+     * @param date a Date set to a day to select. Null to clear selection
+     */
+    public void setSelectedDate(@Nullable LocalDate date) {
+        setSelectedDate(CalendarDay.from(date));
+    }
+
+    /**
      * @param date a Date to set as selected. Null to clear selection
      */
     public void setSelectedDate(@Nullable CalendarDay date) {
@@ -897,13 +918,6 @@ public class MaterialCalendarView extends ViewGroup {
         if (date != null) {
             setDateSelected(date, true);
         }
-    }
-
-    /**
-     * @param date a Date set to a day to select. Null to clear selection
-     */
-    public void setSelectedDate(@Nullable LocalDate date) {
-        setSelectedDate(CalendarDay.from(date));
     }
 
     /**
@@ -968,10 +982,10 @@ public class MaterialCalendarView extends ViewGroup {
      * <p>
      * In week mode, the calendar will be set to the corresponding week.
      *
-     * @param day a CalendarDay to focus the calendar on. Null will do nothing
+     * @param calendar a Calendar set to a day to focus the calendar on. Null will do nothing
      */
-    public void setCurrentDate(@Nullable CalendarDay day) {
-        setCurrentDate(day, true);
+    public void setCurrentDate(@Nullable LocalDate calendar) {
+        setCurrentDate(CalendarDay.from(calendar));
     }
 
     /**
@@ -981,10 +995,10 @@ public class MaterialCalendarView extends ViewGroup {
      * <p>
      * In week mode, the calendar will be set to the corresponding week.
      *
-     * @param calendar a Calendar set to a day to focus the calendar on. Null will do nothing
+     * @param day a CalendarDay to focus the calendar on. Null will do nothing
      */
-    public void setCurrentDate(@Nullable LocalDate calendar) {
-        setCurrentDate(CalendarDay.from(calendar));
+    public void setCurrentDate(@Nullable CalendarDay day) {
+        setCurrentDate(day, true);
     }
 
     /**
