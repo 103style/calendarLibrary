@@ -58,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/mcv_color_right_top"
             android:textSize="12sp" />
     </FrameLayout>
 </LinearLayout>
