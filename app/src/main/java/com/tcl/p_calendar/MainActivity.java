@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setTitleFormatter(new MonthDefaultTitleFormatter(getResources().getStringArray(R.array.month_array)));
         calendarView.setLeftArrow(R.drawable.calendar_select_left);
         calendarView.setRightArrow(R.drawable.calendar_select_right);
+
+        calendarView.setTodayTextColor(R.color.calendar_taday_text_color);
         calendarView.setTvRightTopText(R.string.tv_today);
         Calendar calendar = Calendar.getInstance();
         calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
@@ -36,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         }
         calendarView.addDecorator(new EventDecorator(Color.parseColor("#FF01E9C3"),
                 getResources().getDisplayMetrics().widthPixels / 120, dates));
+
+        calendarView.setTvRightTopClickListener(v -> {
+            calendarView.setSelectedDate(CalendarDay.today());
+        });
 
     }
 }

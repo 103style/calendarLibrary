@@ -952,6 +952,7 @@ public class MaterialCalendarView extends ViewGroup {
         if (date != null) {
             setDateSelected(date, true);
         }
+        checkStatue(date);
     }
 
     /**
@@ -1081,13 +1082,7 @@ public class MaterialCalendarView extends ViewGroup {
      * @param day 日期
      */
     private boolean isToday(CalendarDay day) {
-        if (day == null) {
-            return false;
-        }
-        CalendarDay today = CalendarDay.today();
-        return today.getDay() == day.getDay()
-                && today.getMonth() == day.getMonth()
-                && today.getYear() == day.getYear();
+        return CalendarDay.today().equals(day);
     }
 
     /**
