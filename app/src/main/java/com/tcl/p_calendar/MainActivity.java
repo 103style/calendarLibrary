@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calendarView = findViewById(R.id.test);
+
         calendarView.setTitleFormatter(new MonthDefaultTitleFormatter(getResources().getStringArray(R.array.month_array)));
+
+
         calendarView.setLeftArrow(R.drawable.calendar_select_left);
         calendarView.setRightArrow(R.drawable.calendar_select_right);
 
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setTvRightTopText(R.string.tv_today);
         Calendar calendar = Calendar.getInstance();
         calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
+
+
         HashSet<CalendarDay> dates = new HashSet<>();
         for (int i = 0; i < 10; i++) {
             CalendarDay c = CalendarDay.from(LocalDate.of(2019, 3, 10 + i));
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         calendarView.addDecorator(new EventDecorator(Color.parseColor("#FF01E9C3"),
                 getResources().getDisplayMetrics().widthPixels / 120, dates));
 
+        //click today
         calendarView.setTvRightTopClickListener(v -> {
             calendarView.setSelectedDate(CalendarDay.today());
         });
