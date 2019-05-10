@@ -14,7 +14,7 @@ allprojects {
 }
 ```
 
-add `maven { url "https://jitpack.io" }` in  **app** build.gradle
+add the following code in  **app** build.gradle
 ```
 implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.11'
 ```
