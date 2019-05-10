@@ -3,7 +3,7 @@
 modify base on [material-calendarview](https://github.com/prolificinteractive/material-calendarview)
 
 ### Usage
-add `maven { url "https://jitpack.io" }` in  root build.gradle
+add `maven { url "https://jitpack.io" }` in  **project** build.gradle
 ```
 allprojects {
     repositories {
@@ -14,7 +14,7 @@ allprojects {
 }
 ```
 
-add `maven { url "https://jitpack.io" }` in  app build.gradle
+add `maven { url "https://jitpack.io" }` in  **app** build.gradle
 ```
 implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.11'
 ```
