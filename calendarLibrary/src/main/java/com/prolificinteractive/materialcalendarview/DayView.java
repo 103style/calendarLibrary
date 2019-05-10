@@ -14,6 +14,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatCheckedTextView;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -213,6 +214,8 @@ class DayView extends AppCompatCheckedTextView {
 
         if (isDecoratedDisabled && showDecoratedDisabled) {
             shouldBeVisible |= isInMonth && isInRange;
+        } else if (CalendarDay.today().equals(date) && MaterialCalendarView.todayTextColor != 0) {
+            setTextColor(ContextCompat.getColorStateList(getContext(), MaterialCalendarView.todayTextColor));
         }
 
         if (!isInMonth && shouldBeVisible) {
