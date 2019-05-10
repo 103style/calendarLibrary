@@ -11,13 +11,14 @@
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/test"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:mcv_calendarMode="month"
         app:mcv_headerTextAppearance="@style/CustomTextAppearance"
-        app:mcv_weekDayTextAppearance="@style/WeekextAppearance"
+        app:mcv_monthLabels="@array/month_array"
         app:mcv_selectionColor="#FF398EFF"
         app:mcv_showOtherDates="other_months"
-        app:mcv_monthLabels="@array/month_array"
         app:mcv_weekDayLabels="@array/week_array"
-        app:mcv_calendarMode="month"
-        android:layout_height="wrap_content"/>
+        app:mcv_weekDayTextAppearance="@style/WeekextAppearance" />
 
 </LinearLayout>
