@@ -2,7 +2,7 @@
 
 modify base on [material-calendarview](https://github.com/prolificinteractive/material-calendarview)
 
-### Usage
+### Installation
 add `maven { url "https://jitpack.io" }` in  **project** build.gradle
 ```
 allprojects {
@@ -18,6 +18,67 @@ add the following code in  **app** build.gradle's **dependencies**
 ```
 implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.11'
 ```
+
+### Usage
+[MainActivity](https://github.com/103style/calendarLibrary/blob/master/app/src/main/java/com/tcl/p_calendar/MainActivity.java)
+```
+public class MainActivity extends AppCompatActivity {
+
+    private MaterialCalendarView calendarView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        calendarView = findViewById(R.id.test);
+
+        calendarView.setTitleFormatter(new MonthDefaultTitleFormatter(getResources().getStringArray(R.array.month_array)));
+
+
+        calendarView.setLeftArrow(R.drawable.calendar_select_left);
+        calendarView.setRightArrow(R.drawable.calendar_select_right);
+
+        calendarView.setTodayTextColor(R.color.calendar_taday_text_color);
+        calendarView.setTvRightTopText(R.string.tv_today);
+        Calendar calendar = Calendar.getInstance();
+        calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
+
+
+        HashSet<CalendarDay> dates = new HashSet<>();
+        for (int i = 0; i < 10; i++) {
+            CalendarDay c = CalendarDay.from(LocalDate.of(2019, 3, 10 + i));
+            dates.add(c);
+        }
+        calendarView.addDecorator(new EventDecorator(Color.parseColor("#FF01E9C3"),
+                getResources().getDisplayMetrics().widthPixels / 120, dates));
+
+        //click today
+        calendarView.setTvRightTopClickListener(v -> {
+            calendarView.setSelectedDate(CalendarDay.today());
+        });
+
+    }
+}
+
+```
+
+[R.layout.activity_main](https://github.com/103style/calendarLibrary/blob/master/app/src/main/res/layout/activity_main.xml)
+```
+<com.prolificinteractive.materialcalendarview.MaterialCalendarView
+    android:id="@+id/test"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    app:mcv_calendarMode="month"
+    app:mcv_headerTextAppearance="@style/CustomTextAppearance"
+    app:mcv_monthLabels="@array/month_array"
+    app:mcv_selectionColor="#FF398EFF"
+    app:mcv_showOtherDates="other_months"
+    app:mcv_weekDayLabels="@array/week_array"
+    app:mcv_weekDayTextAppearance="@style/WeekextAppearance" />
+```
+
 
 ---
 ### Screenshot
