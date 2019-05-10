@@ -14,7 +14,7 @@ allprojects {
 }
 ```
 
-add the following code in  **app** build.gradle
+add the following code in  **app** build.gradle's **dependencies**
 ```
 implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.11'
 ```
