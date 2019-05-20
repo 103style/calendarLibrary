@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setTvRightTopText(R.string.tv_today);
         Calendar calendar = Calendar.getInstance();
         calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
+        MaterialCalendarView.setShowAfterToday(true);
 
 
         HashSet<CalendarDay> dates = new HashSet<>();

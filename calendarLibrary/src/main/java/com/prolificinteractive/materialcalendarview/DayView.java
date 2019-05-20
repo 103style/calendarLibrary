@@ -195,7 +195,7 @@ class DayView extends AppCompatCheckedTextView {
     }
 
     private void setEnabled() {
-        boolean enabled = isInMonth && isInRange && !isDecoratedDisabled && !date.isAfter(CalendarDay.today());
+        boolean enabled = isInMonth && isInRange && !isDecoratedDisabled;
         super.setEnabled(isInRange && !isDecoratedDisabled);
 
         boolean showOtherMonths = showOtherMonths(showOtherDates);
