@@ -16,7 +16,7 @@ allprojects {
 
 add the following code in  **app** build.gradle's **dependencies**
 ```
-implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.11'
+implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.13'
 ```
 
 ### Usage
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
 
+        //设置后 今天之后的日期 可点击  默认不可点击
+        MaterialCalendarView.setShowAfterToday(true);
 
         HashSet<CalendarDay> dates = new HashSet<>();
         for (int i = 0; i < 10; i++) {
