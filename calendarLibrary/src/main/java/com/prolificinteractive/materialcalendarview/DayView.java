@@ -195,12 +195,14 @@ class DayView extends AppCompatCheckedTextView {
     }
 
     private void setEnabled() {
-        boolean enabled = isInMonth && isInRange && !isDecoratedDisabled;
+        boolean enabled = isInMonth && isInRange && !isDecoratedDisabled && !date.isAfter(CalendarDay.today());
         super.setEnabled(isInRange && !isDecoratedDisabled);
 
         boolean showOtherMonths = showOtherMonths(showOtherDates);
         boolean showOutOfRange = showOutOfRange(showOtherDates) || showOtherMonths;
         boolean showDecoratedDisabled = showDecoratedDisabled(showOtherDates);
+
+        boolean showAfterToday = MaterialCalendarView.showAfterToday();
 
         boolean shouldBeVisible = enabled;
 
@@ -218,11 +220,17 @@ class DayView extends AppCompatCheckedTextView {
             setTextColor(ContextCompat.getColorStateList(getContext(), MaterialCalendarView.todayTextColor));
         }
 
+
         if (!isInMonth && shouldBeVisible) {
             setTextColor(getTextColors().getColorForState(
                     new int[]{-android.R.attr.state_enabled}, Color.GRAY));
         }
-        setVisibility(shouldBeVisible ? View.VISIBLE : View.INVISIBLE);
+        if (showAfterToday) {
+            setVisibility(shouldBeVisible ? View.VISIBLE : View.INVISIBLE);
+        } else {
+            setVisibility(VISIBLE);
+            setEnabled(!date.isAfter(CalendarDay.today()));
+        }
     }
 
     protected void setupSelection(
