@@ -2,7 +2,7 @@
 <resources>
 
     <declare-styleable name="MaterialCalendarView">
-
+        <!-- 是否显示今天之后的月份-->
         <attr name="mcv_after_today_clickable" format="boolean" />
 
         <attr name="mcv_dateTextAppearance" format="reference" />
