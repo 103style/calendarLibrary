@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         calendarView.setTodayTextColor(R.color.calendar_taday_text_color);
         calendarView.setTvRightTopText(R.string.tv_today);
-        //之后 今天之后的日期不能点击  并且不能滑动到 今天之后的月份
+        //设置 今天之后的日期不能点击  并且不能滑动到 今天之后的月份
         calendarView.setAfterTodayClickable(false);
 
         HashSet<CalendarDay> dates = new HashSet<>();
