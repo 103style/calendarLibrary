@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     app:mcv_headerTextAppearance="@style/CustomTextAppearance"
     app:mcv_monthLabels="@array/month_array"
     app:mcv_selectionColor="#FF398EFF"
+    app:mcv_after_today_clickable="true"
     app:mcv_showOtherDates="other_months"
     app:mcv_weekDayLabels="@array/week_array"
     app:mcv_weekDayTextAppearance="@style/WeekextAppearance" />
