@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         calendarView.setTodayTextColor(R.color.calendar_taday_text_color);
         calendarView.setTvRightTopText(R.string.tv_today);
-        Calendar calendar = Calendar.getInstance();
-        calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
 
 //        calendarView.setSelectionDrawable(ContextCompat.getDrawable(this, R.drawable.calendar_select_right));
 

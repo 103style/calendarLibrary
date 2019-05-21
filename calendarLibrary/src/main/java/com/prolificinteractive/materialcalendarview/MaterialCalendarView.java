@@ -177,6 +177,25 @@ public class MaterialCalendarView extends ViewGroup {
     private OnDateChangeListener changeListener;
     private OnDateLongClickListener longClickListener;
     private OnMonthChangedListener monthListener;
+    private OnRangeSelectedListener rangeListener;
+    private int accentColor = 0;
+    private int tileHeight = INVALID_TILE_DIMENSION;
+    private int tileWidth = INVALID_TILE_DIMENSION;
+    @SelectionMode
+    private int selectionMode = SELECTION_MODE_SINGLE;
+    private boolean allowClickDaysOutsideCurrentMonth = true;
+    private DayOfWeek firstDayOfWeek;
+    private boolean showWeekDays;
+    private State state;
+    /**
+     * 今天之后的日期是否可点击
+     */
+    private boolean afterTodayClickable;
+    /**
+     * 左上角文字根据年份变化
+     */
+    private boolean leftTopUpdateWithViewpager = true;
+
     private final ViewPager.OnPageChangeListener pageChangeListener =
             new ViewPager.OnPageChangeListener() {
                 @Override
@@ -196,20 +215,6 @@ public class MaterialCalendarView extends ViewGroup {
                 public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 }
             };
-    private OnRangeSelectedListener rangeListener;
-    private int accentColor = 0;
-    private int tileHeight = INVALID_TILE_DIMENSION;
-    private int tileWidth = INVALID_TILE_DIMENSION;
-    @SelectionMode
-    private int selectionMode = SELECTION_MODE_SINGLE;
-    private boolean allowClickDaysOutsideCurrentMonth = true;
-    private DayOfWeek firstDayOfWeek;
-    private boolean showWeekDays;
-    private State state;
-    /**
-     * 今天之后的日期是否可点击
-     */
-    private boolean afterTodayClickable;
 
     public MaterialCalendarView(Context context) {
         this(context, null);
@@ -478,7 +483,38 @@ public class MaterialCalendarView extends ViewGroup {
     private void updateUi() {
         titleChanger.change(currentMonth);
         enableView(buttonPast, canGoBack());
-        enableView(buttonFuture, canGoForward());
+        if (afterTodayClickable) {
+            enableView(buttonFuture, canGoForward());
+        } else {
+            enableView(buttonFuture, monthIsBeforeToDay());
+        }
+        if (leftTopUpdateWithViewpager) {
+            setTvLeftTopText(String.valueOf(adapter.getItem(pager.getCurrentItem()).getYear()));
+        }
+    }
+
+    /**
+     * 设置左上角文字根据年份变化
+     */
+    public void setLeftTopUpdateWithViewpager(boolean leftTopUpdateWithViewpager) {
+        this.leftTopUpdateWithViewpager = leftTopUpdateWithViewpager;
+    }
+
+    /**
+     * 当前所在的时间年月是在今天所在年月或者之前
+     */
+    public boolean monthIsBeforeToDay() {
+        CalendarDay calendarDay = adapter.getItem(pager.getCurrentItem());
+        CalendarDay today = CalendarDay.today();
+        boolean enable = true;
+        if (calendarDay.getYear() > today.getYear()) {
+            enable = false;
+        } else if (calendarDay.getYear() == today.getYear()) {
+            if (calendarDay.getMonth() >= today.getMonth()) {
+                enable = false;
+            }
+        }
+        return enable;
     }
 
     /**
@@ -730,9 +766,13 @@ public class MaterialCalendarView extends ViewGroup {
 
     /**
      * 设置今天之后的日期是否可点击
+     * 设置不可点击之后 不能再滑动到今天之后的月份
      */
     public void setAfterTodayClickable(boolean clickable) {
         afterTodayClickable = clickable;
+        if (!clickable) {
+            setRangeDates(null, CalendarDay.today());
+        }
         adapter.setAfterTodayClickable(clickable);
         invalidate();
     }
