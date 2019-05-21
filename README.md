@@ -2,6 +2,11 @@
 
 modify base on [material-calendarview](https://github.com/prolificinteractive/material-calendarview)    [wiki](https://github.com/prolificinteractive/material-calendarview/wiki)
 
+
+### Demo apk
+[download demo apk](https://github.com/103style/calendarLibrary/blob/master/apk/app-debug.apk)
+
+
 ### Installation
 add `maven { url "https://jitpack.io" }` in  **project** build.gradle
 ```
