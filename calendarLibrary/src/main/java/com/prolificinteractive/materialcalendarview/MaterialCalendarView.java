@@ -144,10 +144,6 @@ public class MaterialCalendarView extends ViewGroup {
      * 今天的文字颜色
      */
     public static int todayTextColor = 0;
-    /**
-     * 是否显示今天之后的日期
-     */
-    private static boolean showAfterToday;
     private final TitleChanger titleChanger;
     private final TextView title;
     private final ImageView buttonPast;
@@ -210,6 +206,10 @@ public class MaterialCalendarView extends ViewGroup {
     private DayOfWeek firstDayOfWeek;
     private boolean showWeekDays;
     private State state;
+    /**
+     * 今天之后的日期是否可点击
+     */
+    private boolean afterTodayClickable;
 
     public MaterialCalendarView(Context context) {
         this(context, null);
@@ -335,6 +335,8 @@ public class MaterialCalendarView extends ViewGroup {
                     )
             );
 
+            setAfterTodayClickable(a.getBoolean(R.styleable.MaterialCalendarView_mcv_after_today_clickable, true));
+
             CharSequence[] array = a.getTextArray(R.styleable.MaterialCalendarView_mcv_weekDayLabels);
             if (array != null) {
                 setWeekDayFormatter(new ArrayWeekDayFormatter(array));
@@ -410,20 +412,6 @@ public class MaterialCalendarView extends ViewGroup {
      */
     public static boolean showOtherMonths(@ShowOtherDates int showOtherDates) {
         return (showOtherDates & SHOW_OTHER_MONTHS) != 0;
-    }
-
-    /**
-     * 是否显示今天之后的日期
-     */
-    public static boolean showAfterToday() {
-        return showAfterToday;
-    }
-
-    /**
-     * 设置是否显示今天之后的日期
-     */
-    public static void setShowAfterToday(boolean showAfterToday) {
-        MaterialCalendarView.showAfterToday = showAfterToday;
     }
 
     /**
@@ -722,6 +710,30 @@ public class MaterialCalendarView extends ViewGroup {
         }
         accentColor = color;
         adapter.setSelectionColor(color);
+        invalidate();
+    }
+
+//    /**
+//     * 设置选中的背景
+//     */
+//    public void setSelectionDrawable(Drawable drawable) {
+//        adapter.setSelectionDrawable(drawable);
+//        invalidate();
+//    }
+
+    /**
+     * 今天之后的日期是否可点击
+     */
+    public boolean isAfterTodayClickable() {
+        return afterTodayClickable;
+    }
+
+    /**
+     * 设置今天之后的日期是否可点击
+     */
+    public void setAfterTodayClickable(boolean clickable) {
+        afterTodayClickable = clickable;
+        adapter.setAfterTodayClickable(clickable);
         invalidate();
     }
 

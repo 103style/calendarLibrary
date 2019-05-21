@@ -143,6 +143,12 @@ abstract class CalendarPagerView extends ViewGroup
         }
     }
 
+    public void setAfterTodayClickable(boolean clickable) {
+        for (DayView dayView : dayViews) {
+            dayView.setAfterTodayClickable(clickable);
+        }
+    }
+
     public void setSelectionDrawable(Drawable drawable) {
         for (DayView dayView : dayViews) {
             dayView.setSelectionDrawable(drawable);

@@ -31,6 +31,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     @NonNull
     private TitleFormatter titleFormatter = TitleFormatter.DEFAULT;
     private Integer color = null;
+    private Boolean afterTodayClickable = null;
     private Drawable drawable = null;
     private Integer dateTextAppearance = null;
     private Integer weekDayTextAppearance = null;
@@ -87,6 +88,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     public CalendarPagerAdapter<?> migrateStateAndReturn(CalendarPagerAdapter<?> newAdapter) {
         newAdapter.titleFormatter = titleFormatter;
         newAdapter.color = color;
+        newAdapter.afterTodayClickable = afterTodayClickable;
         newAdapter.drawable = drawable;
         newAdapter.dateTextAppearance = dateTextAppearance;
         newAdapter.weekDayTextAppearance = weekDayTextAppearance;
@@ -155,6 +157,9 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         if (color != null) {
             pagerView.setSelectionColor(color);
         }
+        if (afterTodayClickable != null) {
+            pagerView.setAfterTodayClickable(afterTodayClickable);
+        }
         if (drawable != null) {
             pagerView.setSelectionDrawable(drawable);
         }
@@ -212,6 +217,13 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         this.color = color;
         for (V pagerView : currentViews) {
             pagerView.setSelectionColor(color);
+        }
+    }
+
+    public void setAfterTodayClickable(boolean clickable) {
+        this.afterTodayClickable = clickable;
+        for (V pagerView : currentViews) {
+            pagerView.setAfterTodayClickable(clickable);
         }
     }
 

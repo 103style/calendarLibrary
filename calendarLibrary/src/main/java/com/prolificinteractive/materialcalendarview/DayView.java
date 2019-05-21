@@ -52,6 +52,10 @@ class DayView extends AppCompatCheckedTextView {
     private boolean isDecoratedDisabled = false;
     @ShowOtherDates
     private int showOtherDates = MaterialCalendarView.SHOW_DEFAULTS;
+    /**
+     * 今天之后的日期是否可点击
+     */
+    private boolean afterTodayClickable = true;
 
     public DayView(Context context, CalendarDay day) {
         super(context);
@@ -167,6 +171,14 @@ class DayView extends AppCompatCheckedTextView {
     }
 
     /**
+     * 设置今天之后的日期是否可点击
+     */
+    public void setAfterTodayClickable(boolean clickable) {
+        afterTodayClickable = clickable;
+        setEnabled();
+    }
+
+    /**
      * @param drawable custom selection drawable
      */
     public void setSelectionDrawable(Drawable drawable) {
@@ -202,7 +214,7 @@ class DayView extends AppCompatCheckedTextView {
         boolean showOutOfRange = showOutOfRange(showOtherDates) || showOtherMonths;
         boolean showDecoratedDisabled = showDecoratedDisabled(showOtherDates);
 
-        boolean showAfterToday = MaterialCalendarView.showAfterToday();
+        boolean showAfterToday = afterTodayClickable;
 
         boolean shouldBeVisible = enabled;
 
