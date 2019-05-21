@@ -16,7 +16,7 @@ allprojects {
 
 add the following code in  **app** build.gradle's **dependencies**
 ```
-implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.14'
+implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.15'
 ```
 
 ### Usage
@@ -78,8 +78,12 @@ public class MainActivity extends AppCompatActivity {
     app:mcv_weekDayTextAppearance="@style/WeekextAppearance" />
 ```
 
+### attrs  added
+```
+<!-- 是否显示今天之后的月份-->
+<attr name="mcv_after_today_clickable" format="boolean" />
+```
 
 ---
 ### Screenshot
-Today : 2019/05/10
-![Screenshot](https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190510-152543.png)
+<img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190510-152543.png" width="216" height="432"/>     <img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190521-163512.png" width="216" height="432"/>     <img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190521-163519.png" width="216" height="432"/>
