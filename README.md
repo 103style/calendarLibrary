@@ -104,13 +104,7 @@ public class MainActivity extends AppCompatActivity {
 ---
 
 ### Modifitions
-
-* attr:
-    ```
-    <!-- 是否显示今天之后的月份-->
-    <attr name="mcv_after_today_clickable" format="boolean" />
-    ```
-    
+ 
 * files：
     * [MaterialCalendarView.java](https://github.com/prolificinteractive/material-calendarview/tree/v1.4.3/library/src/main/java/com/prolificinteractive/materialcalendarview/MaterialCalendarView.java)  ->  [MaterialCalendarView.java](https://github.com/103style/calendarLibrary/blob/master/calendarLibrary/src/main/java/com/prolificinteractive/materialcalendarview/MaterialCalendarView.java)
 
