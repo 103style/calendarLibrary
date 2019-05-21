@@ -1139,10 +1139,6 @@ public class MaterialCalendarView extends ViewGroup {
         if (tvRightTop != null) {
             tvRightTop.setEnabled(!isToday(day));
         }
-
-        if (buttonFuture != null) {
-            buttonFuture.setEnabled(!isToday(day));
-        }
     }
 
 
