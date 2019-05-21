@@ -16,7 +16,7 @@ allprojects {
 
 add the following code in  **app** build.gradle's **dependencies**
 ```
-implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.13'
+implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.14'
 ```
 
 ### Usage
@@ -41,11 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         calendarView.setTodayTextColor(R.color.calendar_taday_text_color);
         calendarView.setTvRightTopText(R.string.tv_today);
-        Calendar calendar = Calendar.getInstance();
-        calendarView.setTvLeftTopText(String.valueOf(calendar.get(Calendar.YEAR)));
-
-        //设置后 今天之后的日期 可点击  默认不可点击
-        MaterialCalendarView.setShowAfterToday(true);
+        //之后 今天之后的日期不能点击  并且不能滑动到 今天之后的月份
+        calendarView.setAfterTodayClickable(false);
 
         HashSet<CalendarDay> dates = new HashSet<>();
         for (int i = 0; i < 10; i++) {
