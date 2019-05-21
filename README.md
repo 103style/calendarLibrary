@@ -97,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 ---
 ### Screenshot
-<img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190510-152543.png" width="216" height="432"/>     
-
-<img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190521-163512.png" width="216" height="384"/>     <img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190521-163519.png" width="216" height="384"/>
+<img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190510-152543.png" width="216" height="432"/>     <img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190521-163512.png" width="216" height="384"/>     <img src="https://github.com/103style/calendarLibrary/blob/master/screenshot/Screenshot_20190521-163519.png" width="216" height="384"/>
 
 ---
 
