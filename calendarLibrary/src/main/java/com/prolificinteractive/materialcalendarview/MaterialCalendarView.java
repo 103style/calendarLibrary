@@ -540,6 +540,13 @@ public class MaterialCalendarView extends ViewGroup {
     }
 
     /**
+     * 获取当前页面的年月日
+     */
+    public CalendarDay getCurrentMonth() {
+        return currentMonth;
+    }
+
+    /**
      * Get the current selection mode. The default mode is {@linkplain #SELECTION_MODE_SINGLE}
      *
      * @return the current selection mode
