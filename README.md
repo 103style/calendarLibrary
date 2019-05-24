@@ -22,7 +22,7 @@ allprojects {
 
 add the following code in  **app** build.gradle's **dependencies**
 ```
-implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.15'
+implementation 'com.github.103style.calendarLibrary:calendarLibrary:0.0.16'
 ```
 
 ### Usage
