@@ -239,9 +239,10 @@ class DayView extends AppCompatCheckedTextView {
         }
         if (showAfterToday) {
             setVisibility(shouldBeVisible ? View.VISIBLE : View.INVISIBLE);
+            setEnabled(isInRange);
         } else {
             setVisibility(VISIBLE);
-            setEnabled(!date.isAfter(CalendarDay.today()));
+            setEnabled(isInRange && !date.isAfter(CalendarDay.today()));
         }
     }
 

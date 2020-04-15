@@ -33,12 +33,20 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setTodayTextColor(R.color.calendar_taday_text_color);
         calendarView.setTvRightTopText(R.string.tv_today);
 
+
+        CalendarDay todayDate = CalendarDay.today();
+
         //选中今天
-        calendarView.setSelectedDate(CalendarDay.today());
+        calendarView.setSelectedDate(todayDate);
 
 
         //设置 今天之后的日期不能点击  并且不能滑动到 今天之后的月份
         calendarView.setAfterTodayClickable(false);
+        //上面这句相当于 setMinimumDate(null).setMaximumDate(todayDate)
+//        calendarView.state().edit()
+//                .setMinimumDate(CalendarDay.from(todayDate.getYear() - 1, todayDate.getMonth(), todayDate.getDay()))
+//                .setMaximumDate(todayDate)
+//                .commit();
 
         // 设置 今天之前的10天 添加标记的日期
         HashSet<CalendarDay> dates = new HashSet<>();
